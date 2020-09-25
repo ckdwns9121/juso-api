@@ -3,6 +3,7 @@ import AddressModal from "./components/AddressModal";
 import styles from "./App.module.scss";
 import {GrFormSearch} from 'react-icons/gr';
 import AddrItem from './components/AddrItem';
+import {searchAddress} from './api/address';
 
 function App() {
 
@@ -20,6 +21,11 @@ function App() {
   const handleClose = () => {
     setOpen(false);
   };
+
+  useEffect(()=>{
+    searchAddress();
+  },[]) 
+
 
   return (
     <div className={styles["container"]}>
