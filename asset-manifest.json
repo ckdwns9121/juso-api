@@ -1,0 +1,22 @@
+{
+  "files": {
+    "main.css": "/juso-api/static/css/main.f13ff631.chunk.css",
+    "main.js": "/juso-api/static/js/main.7c2c76ef.chunk.js",
+    "main.js.map": "/juso-api/static/js/main.7c2c76ef.chunk.js.map",
+    "runtime-main.js": "/juso-api/static/js/runtime-main.689f59f6.js",
+    "runtime-main.js.map": "/juso-api/static/js/runtime-main.689f59f6.js.map",
+    "static/js/2.0e39cf61.chunk.js": "/juso-api/static/js/2.0e39cf61.chunk.js",
+    "static/js/2.0e39cf61.chunk.js.map": "/juso-api/static/js/2.0e39cf61.chunk.js.map",
+    "index.html": "/juso-api/index.html",
+    "precache-manifest.a079834fcf7ab27cece6b62a5b5cc89c.js": "/juso-api/precache-manifest.a079834fcf7ab27cece6b62a5b5cc89c.js",
+    "service-worker.js": "/juso-api/service-worker.js",
+    "static/css/main.f13ff631.chunk.css.map": "/juso-api/static/css/main.f13ff631.chunk.css.map",
+    "static/js/2.0e39cf61.chunk.js.LICENSE.txt": "/juso-api/static/js/2.0e39cf61.chunk.js.LICENSE.txt"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.689f59f6.js",
+    "static/js/2.0e39cf61.chunk.js",
+    "static/css/main.f13ff631.chunk.css",
+    "static/js/main.7c2c76ef.chunk.js"
+  ]
+}
