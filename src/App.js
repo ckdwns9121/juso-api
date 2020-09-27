@@ -1,30 +1,45 @@
-import React ,{useState,useEffect} from "react";
+import React ,{useState,useEffect,useCallback} from "react";
 import AddressModal from "./components/AddressModal";
 import styles from "./App.module.scss";
 import {GrFormSearch} from 'react-icons/gr';
-import AddrItem from './components/AddrItem';
+import AddrItemList from './components/AddrItemList';
 import {searchAddress} from './api/address';
 
 function App() {
 
   const [open, setOpen] = useState(false);
   const [search,setSearch] = useState('');
+  const [searchList ,serSearchList] = useState([]);
+  const [userList, setUserList] = useState([]);
+
 
   const onChangeSearch =(e)=>{
     console.log(e.target.value);
     setSearch(e.target.value);
   }
 
-  const handleOpen = () => {
+  const handleOpen =()=>{
     setOpen(true);
-  };
+    onSearch();
+  }
+
   const handleClose = () => {
     setOpen(false);
   };
 
-  useEffect(()=>{
-    searchAddress();
-  },[]) 
+  const onSearch = useCallback(async()=>{
+    try{
+      const res = await searchAddress(search);
+      console.log(res);
+      serSearchList(res);
+    }
+    catch(e){
+      console.error(e);
+    }
+
+  },[search]);
+
+
 
 
   return (
@@ -35,7 +50,11 @@ function App() {
           입력하세요
         </div>
         <div className={styles['input']}>
-          <input  placeholder ="예) 배민동12-3또는 배민아파트" className={styles['addr-input']} type="text" value={search} onChange={onChangeSearch}></input>
+          <input  
+          placeholder ="예) 배민동12-3또는 배민아파트" 
+          className={styles['addr-input']} 
+          type="text" value={search} 
+          onChange={onChangeSearch}></input>
           <div className={styles['search']} onClick={handleOpen}>
             <GrFormSearch/>
           </div>
@@ -49,14 +68,14 @@ function App() {
             <div className={styles['title']}>
               최근 주소
             </div>
-            {/* 여기 리스트 출력 */}
-            <AddrItem/>
         </div>
       </div>
 
       <AddressModal
         open={open}
         handleClose={handleClose}
+        list ={searchList}
+        onClick={onSearch}
       />
     </div>
   );

@@ -12,6 +12,7 @@ import Typography from "@material-ui/core/Typography";
 import CloseIcon from "@material-ui/icons/Close";
 import Slide from "@material-ui/core/Slide";
 import AddrItem from './AddrItem';
+import AddrItemList from "./AddrItemList";
 
 const useStyles = makeStyles((theme) => ({
   appBar: {
@@ -89,9 +90,9 @@ const AddressModal = (props) => {
             <BiSearch/>
             </div>
             <div>
-              <AddrItem/>
-              <AddrItem/>
-              <AddrItem/>
+            {props.list.length !==0 && 
+            <AddrItemList list={props.list} />
+            }
             </div>
           </div>
         </DialogContent>
